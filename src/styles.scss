@@ -1,0 +1,33 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+label {
+  display: block;
+  margin: 0;
+  padding: 2px;
+  color: gray;
+  font-style: italic;
+}
+input {
+  padding: 5px;
+  margin: 0px;
+  border-radius: 5px;
+  border: 0px;
+  background-color: gray;
+  color: white;
+}
+button {
+  margin: 5px;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 0px;
+  background-color: hsl(200, 50%, 50%);
+  color: white;
+
+  &:hover {
+    background-color: hsl(200, 50%, 30%);
+  }
+}

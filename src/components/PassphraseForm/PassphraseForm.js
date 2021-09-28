@@ -1,10 +1,14 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
+
 import "./PassphraseForm.scss";
 import { MyContext } from "../../App";
 
 function PassphraseForm(props) {
   const [name, setName] = useState("");
   const [pass, setPass] = useState("");
+
+  const history = useHistory();
 
   const handleNameChange = (e) => {
     setName(e.target.value);
@@ -18,6 +22,7 @@ function PassphraseForm(props) {
       console.log("success");
       data.setLogged(true);
       data.setUser(name);
+      history.push('/content');
     }
   };
   return (
