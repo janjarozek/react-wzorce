@@ -1,6 +1,8 @@
 import React from 'react';
 
 import { MyContext } from '../../App';
+// import { useDataContext } from '../ContextHandler';
+// import { useDefaultUserContext } from '../ContextHandler';
 
 const defaultUser = {
     name: 'name',

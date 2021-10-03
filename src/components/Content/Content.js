@@ -1,15 +1,19 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 
+import { useDataContext, useUpdateNameContext, useUpdateLoggedStatusContext } from '../ContextHandler/ContextHandler';
 
-import { MyContext } from "../../App";
+export default function Content() {
+  const dataContext = useDataContext();
+  const updateNameContext = useUpdateNameContext();
+  const updateLoggedStatusContext = useUpdateLoggedStatusContext();
 
-function Content() {
   const history = useHistory();
-  const handleLogoutButton = (data) => (e) => {
+
+  const handleLogoutButton = (e) => {
     e.preventDefault();
-    data.setUser(null);
-    data.setLogged(false);
+    updateNameContext('');
+    updateLoggedStatusContext(false);
     history.push('/');
   };
   const handlePlacesButton = () => {
@@ -19,21 +23,17 @@ function Content() {
     history.push('/movies');
   }
   return (
-    <div>
-      <MyContext.Consumer>
-        {(value) =>
-          value.isLogged && (
-            <div>
-              <h2>Logged in as {value.userName}!</h2>
-              <button onClick={handleMoviesButton}>Movies</button>
-              <button onClick={handlePlacesButton}>Places</button>
-              <button onClick={handleLogoutButton(value)}>LOGOUT</button>
-            </div>
-          )
-        }
-      </MyContext.Consumer>
-    </div>
+    <>
+      {
+      (dataContext.logged === true) && (
+        <div>
+          <h2>Logged in as {dataContext.userName}!</h2>
+          <button onClick={handleMoviesButton}>Movies</button>
+          <button onClick={handlePlacesButton}>Places</button>
+          <button onClick={handleLogoutButton}>LOGOUT</button>
+        </div>
+      )
+      }
+    </>
   );
 }
-
-export default Content;
