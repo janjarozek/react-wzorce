@@ -21,13 +21,10 @@ function PassphraseForm() {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    // console.log(dataContext);
     if (pass === dataContext.appKey && name !== "") {
       console.log("success");
       updateLoggedStatusContext(true);
       updateNameContext(name);
-      // data.setLogged(true);
-      // data.setUser(name);
       history.push('/content');
     }
   };
@@ -51,26 +48,6 @@ function PassphraseForm() {
         )
       }
     </div>
-    // THIS IS BAD it's a class construction for passing context value ... for func useContext instead !
-    // <MyContext.Consumer>
-    //   {(value) =>
-    //     !value.isLogged && (
-    //       <div className="form-container">
-    //         <form onSubmit={handleSubmit(value)}>
-    //           <div>
-    //             <label>Name:</label>
-    //             <input onChange={handleNameChange} type="text" />
-    //           </div>
-    //           <div>
-    //             <label>Password:</label>
-    //             <input onChange={handlePassChange} type="password" />
-    //           </div>
-    //           <button>SUBMIT</button>
-    //         </form>
-    //       </div>
-    //     )
-    //   }
-    // </MyContext.Consumer>
   );
 }
 

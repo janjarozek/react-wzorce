@@ -37,11 +37,9 @@ export default function ContextHandler({ children }) {
     };
     const updateLoggedStatus = (value) => {
         setLogged(logged => value)
-        // setUserName({userName:value})
     };
     const updateUserName = (value) => {
         setUserName(userName => value)
-        // setLogged(logged => value)
     };
 
     return (
